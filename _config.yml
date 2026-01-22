@@ -3,11 +3,11 @@ course_name: Computer Networks (ELEC 3120)
 course_description: "Foggy University is the pronunciation of HKUST in Cantonese. Walking in the fog was also my feeling when I was learning computer networks."
 course_semester: "Fall 2025"
 
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://www.foggynetwork.com/" # the base hostname & protocol for your site
+baseurl: "/fall2025/" # the subpath of your site, e.g. /blog/
+url: "https://hkust-network.github.io/" # the base hostname & protocol for your site
 
 schoolname: "HKUST ECE"
-schoolurl: "https://www.foggynetwork.com"
+schoolurl: "https://ece.hkust.edu.hk/"
 # twitter_username: username 
 
 address: |
