@@ -1,7 +1,7 @@
 ---
 type: tutorial
-date: 2026-10-09T15:00:00+08:00
-date2: 2026-10-12T15:00:00+08:00
+date: 2026-10-12T15:00:00+08:00
+date2: 2026-10-16T15:00:00+08:00
 title: Usage of network tools
 thumbnail: /static_files/presentations/lec.jpg
 # links:

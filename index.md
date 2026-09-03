@@ -48,7 +48,7 @@ If your assignments are detected to be copied or AI-generated, this will be a se
 | Tutorial T1 | Mo 3:00PM - 3:50PM | Rm 5583, Lift 29-30 |
 | Tutorial T2 | Fr 3:00PM - 3:50PM | Rm 2504, Lift 25-26 |
 
-All times are Hong Kong time. Classes run from **September 1 to November 30, 2026**. The first lecture is **Friday, September 4**; the first T1 tutorial is **Monday, September 7**, and the first T2 tutorial is **Friday, September 4**.
+All times are Hong Kong time. Classes run from **September 1 to November 30, 2026**. The first lecture is **Friday, September 4**. There is **no tutorial on September 4**; tutorials start with T1 on **Monday, September 7**, and T2 on **Friday, September 11**, and are grouped by teaching week.
 
 There are **no classes on Monday, October 19** (the day following Chung Yeung Festival). Study break is **December 1-5**, and the Fall examination period is **December 7-19**. The final exam date, time, and venue will be announced when available.
 

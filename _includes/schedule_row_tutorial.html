@@ -1,8 +1,8 @@
 <div class="col col-1" data-label="Event">Tutorial</div>
 <div class="col col-1-2" data-label="Date">
-    T2: {{ include.event.date | date: site.dateformat }}
+    {{ include.event.date | date: site.dateformat }}
     {% if include.event.date2 %}
-     / T1:
+     and
     {{ include.event.date2 | date: site.dateformat }}
     {% endif %}
     <br class="date-spliter"/>
