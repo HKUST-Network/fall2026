@@ -19,11 +19,11 @@ items:
   name: Project
   icon_class: fas fa-user-graduate
 
-# externals:
-# - url: https://www.gradescope.com/courses/1102481
-#   name: Gradescope
-#   icon_class: fas fa-user-graduate
+externals:
+- url: https://www.gradescope.com/courses/1384476
+  name: Gradescope
+  icon_class: fas fa-user-graduate
 
-# - url: https://edstem.org/au/courses/27746/discussion/
-#   name: Ed
-#   icon_class: fas fa-book-reader
+- url: https://edstem.org/au/courses/41196/discussion
+  name: Ed
+  icon_class: fas fa-book-reader
