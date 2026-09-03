@@ -1,6 +1,6 @@
 ---
 type: checkpoint
-date: 2026-10-16T15:00:00+08:00
+date: 2026-10-26T15:00:00+08:00
 tentative: true
 title: 'Checkpoint 3: Congestion Control and Loss Recovery'
 due_event: 

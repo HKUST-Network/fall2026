@@ -6,7 +6,7 @@ title: 'Checkpoint 1: Kickoff'
 # link: https://www.gradescope.com/
 due_event: 
     type: due
-    date: 2026-09-25T23:59:00+08:00
+    date: 2026-10-02T23:59:00+08:00
     description: 'Checkpoint #1 due (tentative)'
 ---
 

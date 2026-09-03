@@ -1,6 +1,6 @@
 ---
 type: lecture
-date: 2026-10-16T09:00:00+08:00
+date: 2026-10-09T09:00:00+08:00
 title: IP and DNS
 thumbnail: /static_files/presentations/lec.jpg
 # links:
