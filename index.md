@@ -43,9 +43,19 @@ If your assignments are detected to be copied or AI-generated, this will be a se
 
 | Class | Time | Location |
 |:---:|:---:|:---:|
-| Lecture | MoWe 10:30AM - 11:50AM | [Lecture Theater D](https://pathadvisor.ust.hk/nearest/lift/to/LTD;bFQMqeWF_ERU;1;1893,450/floor/1/at/normalized/1893,450,3) |
-| Tutorial T1 | Mo 9:30AM - 10:20AM | [LG3008, Lift 10-12](https://pathadvisor.ust.hk/search/nearest/lift/to/ROOM%20LG3008;nsloCUCPRf;LG3;-333,183/floor/LG3/at/normalized/-267,453,3) |
-| Tutorial T2 | We 12:00PM - 12:50PM | [Rm 6555, Lift 29-30](https://pathadvisor.ust.hk/search/nearest/lift/to/ROOM%206555;4xEmkrf9gR;6;2679,-155/floor/6/at/normalized/1517,53,3) |
+| Lecture L1 | Mo 1:30PM - 2:50PM | LTL, CYT Bldg |
+| Lecture L1 | Fr 9:00AM - 10:20AM | LTL, CYT Bldg |
+| Tutorial T1 | Mo 3:00PM - 3:50PM | Rm 5583, Lift 29-30 |
+| Tutorial T2 | Fr 3:00PM - 3:50PM | Rm 2504, Lift 25-26 |
+
+All times are Hong Kong time. Classes run from **September 1 to November 30, 2026**. The first lecture is **Friday, September 4**; the first T1 tutorial is **Monday, September 7**, and the first T2 tutorial is **Friday, September 4**.
+
+There are **no classes on Monday, October 19** (the day following Chung Yeung Festival). Study break is **December 1-5**, and the Fall examination period is **December 7-19**. The final exam date, time, and venue will be announced when available.
+
+See the [course schedule]({{ '/schedule/' | relative_url }}) for the tentative syllabus. Lecture topics, tutorials, the midterm, and assessment dates are tentative and will be updated during the semester.
+
+Calendar reference: HKUST Academic Calendar 2026-27, confirmed July 2026.
+<!-- https://registry.hkust.edu.hk/calendar_dates/dates26-27confirmed.pdf -->
 
 ## Prerequisites
 
@@ -56,9 +66,13 @@ If you believe you are capable of the knowledge of C++ programming but do not sa
 
 ## Resources
 
+Course service links and teaching materials will be added gradually throughout the semester.
+
+<!-- External course services will be re-enabled when the Fall 2026 resources are ready.
 * [Ed](https://edstem.org/au/courses/27746/discussion/).\
   For all course-related questions, you are **strongly discouraged** to email the instructor directly unless privacy concerns are involved. Instead, post your questions on Ed (it can be anonymous). Other students can benefit from the answer as well.
 * [Gradescope](https://www.gradescope.com/courses/1102481).\
   For submitting homework assignments and projects.
 * [Github repo](https://github.com/HKUST-Network/foggytcp).\
   For releasing code template for projects.
+-->

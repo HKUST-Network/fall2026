@@ -4,10 +4,12 @@
     <br class="date-spliter" />{{ include.event.date | date: "%A" }}
 </div>
 <div class="col col-2" style="font-weight: bold" data-label="Description">
-    {{ include.event.title }} released!
+    {{ include.event.title }} {% if include.event.tentative %}(tentative release){% else %}released!{% endif %}
 </div>
 <div class="col col-4" data-label="Course Material">
+    {% if include.event.link %}
     [<a href="{{ include.event.link }}">{{ include.event.title }}</a>]
+    {% endif %}
     {% if include.event.solutions %}
     [<a href="{{ include.event.solutions | prepend: site.baseurl}}">Solutions</a>]
     {% endif %}

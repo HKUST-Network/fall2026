@@ -1,4 +1,5 @@
 ---
+published: false
 type: lecture
 date: 2025-10-01
 title: NO LECTURE

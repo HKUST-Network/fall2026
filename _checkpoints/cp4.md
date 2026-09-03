@@ -1,11 +1,12 @@
 ---
 type: checkpoint
-date: 2025-11-05
+date: 2026-11-09T15:00:00+08:00
+tentative: true
 title: 'Checkpoint 4: Design your own algorithm!'
 due_event: 
     type: due
-    date: 2025-11-21T23:59:59+8:00
-    description: 'Checkpoint #4 due'
+    date: 2026-11-27T23:59:00+08:00
+    description: 'Checkpoint #4 due (tentative)'
 ---
 
 # Introduction
@@ -19,7 +20,7 @@ In this checkpoint, you need to finish two tasks based on **your own CP3 code**.
 In Checkpoint 1, we asked you questions and you formed your own hypotheses. In this checkpoint, we are going to give you a hypothesis formulated by Dr. Matt Mathis: that TCP Reno implementations obey the following throughput equation:
 **throughput = (MSS/RTT)*(C/sqrt(p))**, where **C** is a constant, **p** is the loss probability, RTT is the round-trip time and MSS is 1400 bytes in our project. The following measurements will help you verify this hypothesis.
 
-(References: https://dl.acm.org/doi/10.1145/263932.264023)
+(Reference: DOI 10.1145/263932.264023) <!-- https://dl.acm.org/doi/10.1145/263932.264023 -->
 ## Experiment
 Use tcconfig (checkpoint 1) to adjust the loss probability **p** on the sender node to different values.
 ```

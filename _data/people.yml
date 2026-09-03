@@ -1,18 +1,18 @@
 instructors:
   - name: Zili Meng
     profile_pic: https://zilimeng.com/personal/portrait.JPG
-    webpage: https://zilimeng.com/
+    # webpage: https://zilimeng.com/
     email: zilim@ust.hk
 
 teaching_assistants:
   - name: Wei Li (Lead TA)
     profile_pic: https://lw945.github.io/images/my_photo.jpg
-    webpage: https://lw945.github.io/
+    # webpage: https://lw945.github.io/
     email: wlidq@connect.ust.hk
 
   - name: Hua Meng
     profile_pic: https://huameng15.github.io/images/IMG_8869.JPG
-    webpage: https://huameng15.github.io/
+    # webpage: https://huameng15.github.io/
     email: hmengab@connect.ust.hk
 
   - name: Yibin Shen

@@ -1,11 +1,12 @@
 ---
 type: checkpoint
-date: 2025-10-15
+date: 2026-10-16T15:00:00+08:00
+tentative: true
 title: 'Checkpoint 3: Congestion Control and Loss Recovery'
 due_event: 
     type: due
-    date: 2025-11-07T23:59:59+8:00
-    description: 'Checkpoint #3 due'
+    date: 2026-11-13T23:59:00+08:00
+    description: 'Checkpoint #3 due (tentative)'
 ---
 
 # Introduction

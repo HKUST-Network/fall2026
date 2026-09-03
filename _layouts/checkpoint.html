@@ -6,12 +6,12 @@ title: page.title
 
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">Released on {{ page.date | date: "%A" }} {{ page.date | date: site.dateformat }}</p>
+    <p class="post-meta">{% if page.tentative %}Tentative release:{% else %}Released on{% endif %} {{ page.date | date: "%A" }} {{ page.date | date: site.dateformat }}</p>
   </header>
 
   <div>
     {% if page.due_event %}
-    <span style="font-weight: bold">Due Date: {{ page.due | date: site.dateformat }} {{ page.due_event.date | date: "%H:%M" }}</span>
+    <span style="font-weight: bold">{% if page.tentative %}Tentative due date:{% else %}Due Date:{% endif %} {{ page.due_event.date | date: site.dateformat }} {{ page.due_event.date | date: "%H:%M" }}</span>
     {% endif %}
     <p style="font-weight: bold">Download
       {% if page.pdf %}

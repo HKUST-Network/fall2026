@@ -1,11 +1,12 @@
 ---
 type: checkpoint
-date: 2025-09-17
+date: 2026-09-21T15:00:00+08:00
+tentative: true
 title: 'Checkpoint 2: TCP Basics'
 due_event: 
     type: due
-    date: 2025-10-03T23:59:59+8:00
-    description: 'Checkpoint #2 due'
+    date: 2026-10-09T23:59:00+08:00
+    description: 'Checkpoint #2 due (tentative)'
 ---
 
 # Introduction
@@ -95,7 +96,7 @@ Then you should see something like this:
 
 
 ### Packet analyse using Wireshark
-Wireshark is a powerful network packet capture and analysis tool. [Download here.](https://www.wireshark.org/download.html) After installation, copy the lua file ```tcp.lua``` to the directory for wireshark plugins, for example: ```E:\Applications\Wireshark\plugins```. Then start wireshark and open the captured file ```<name>.pacp```. Now you can analyze the packets with a beautiful user interface.
+Wireshark is a powerful network packet capture and analysis tool. Download here. <!-- [Download here.](https://www.wireshark.org/download.html) --> After installation, copy the lua file ```tcp.lua``` to the directory for wireshark plugins, for example: ```E:\Applications\Wireshark\plugins```. Then start wireshark and open the captured file ```<name>.pacp```. Now you can analyze the packets with a beautiful user interface.
 ![](../_images/cp2/pkt_analyze_wireshark.png)
 
 # What to submit

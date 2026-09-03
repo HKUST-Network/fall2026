@@ -1,9 +1,9 @@
 # Site settings
 course_name: Computer Networks (ELEC 3120)
 course_description: "Foggy University is the pronunciation of HKUST in Cantonese. Walking in the fog was also my feeling when I was learning computer networks."
-course_semester: "Fall 2025"
+course_semester: "Fall 2026"
 
-baseurl: "/fall2025/" # the subpath of your site, e.g. /blog/
+baseurl: "/fall2026" # the subpath of your site, e.g. /blog/
 url: "https://hkust-network.github.io/" # the base hostname & protocol for your site
 
 schoolname: "HKUST ECE"

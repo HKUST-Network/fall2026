@@ -1,14 +1,14 @@
 ---
 type: lecture
-date: 2025-11-03
+date: 2026-10-30T09:00:00+08:00
 title: The Internet Architecture
 thumbnail: /static_files/presentations/lec.jpg
-links: 
-    - url: https://canvas.ust.hk/courses/65049/modules/items/1669886
-      name: slides
-    - url: https://canvas.ust.hk/courses/65049/pages/elec3120-l1-2025-11-03-10-30
-      name: recording  
+# links:
+#     - url: https://canvas.ust.hk/courses/65049/modules/items/1669886
+#       name: slides
+#     - url: https://canvas.ust.hk/courses/65049/pages/elec3120-l1-2025-11-03-10-30
+#       name: recording
 hide_from_announcments: true
 ---
 **Suggested Readings:**
-- [P&D 1.3](https://book.systemsapproach.org/foundation/architecture.html)
+- P&D 1.3 <!-- [P&D 1.3](https://book.systemsapproach.org/foundation/architecture.html) -->

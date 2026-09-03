@@ -1,17 +1,18 @@
 ---
 type: checkpoint
-date: 2025-09-03
+date: 2026-09-07T15:00:00+08:00
+tentative: true
 title: 'Checkpoint 1: Kickoff'
-link: https://www.gradescope.com/
+# link: https://www.gradescope.com/
 due_event: 
     type: due
-    date: 2025-09-26T23:59:59+8:00
-    description: 'Checkpoint #1 due'
+    date: 2026-09-25T23:59:00+08:00
+    description: 'Checkpoint #1 due (tentative)'
 ---
 
 # Validate your GitHub student status
 
-Please do it as soon as possible. It may take a few days to validate your status. Then you can use Copilot for free. You may refer to [this guide](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer).
+Please do it as soon as possible. It may take a few days to validate your status. Then you can use Copilot for free. You may refer to this guide <!-- [this guide](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer) -->.
 
 # Create a **PRIVATE** repo of your project
 
@@ -28,8 +29,8 @@ You can use Vagrant and VirtualBox to automatically setup the environment. Diffe
 If you are using Windows Subsystem for Linux (Linux), please refer to the installation steps for Linux. I also recommend you to do in that way -- Linux is an important tool for developers.
 Otherwise, follow the instructions below.
 
-* [Install Vagrant](https://www.vagrantup.com/downloads.html)
-* [Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+* Install Vagrant <!-- [Install Vagrant](https://www.vagrantup.com/downloads.html) -->
+* Install VirtualBox <!-- [Install VirtualBox](https://www.virtualbox.org/wiki/Downloads) -->
 
 *FAQ: Where is the terminal on my laptop?* The best way to access the terminal is in Visual Studio Code. This is the most popular IDE for developers. Under the View menu, you can find the Terminal option. 
 
@@ -97,7 +98,7 @@ Now you have successfully transmitted the `client.cc` file from the client to th
 
 
 ## Set traffic control manually
-[tcconfig](https://tcconfig.readthedocs.io/en/latest/index.html) can be used to manually set traffic control between client VM and server VM. Use the following command to install it:
+tcconfig <!-- [tcconfig](https://tcconfig.readthedocs.io/en/latest/index.html) --> can be used to manually set traffic control between client VM and server VM. Use the following command to install it:
 ```bash
 sudo pip install tcconfig
 ```
@@ -117,7 +118,7 @@ And use the following command to see your settings:
 sudo tcshow $IFNAME
 ```
 
-Please refer to the [tcconfig documents](https://tcconfig.readthedocs.io/en/latest/index.html) for more usages.
+Please refer to the tcconfig documents <!-- [tcconfig documents](https://tcconfig.readthedocs.io/en/latest/index.html) --> for more usages.
 
 # What to submit
 
@@ -128,7 +129,7 @@ You do not need to modify the code for this checkpoint.
 We hope that you can familiarize yourself with the submission procedure on Gradescope.
 
 1. Modify any place in the `*.cc` or `*.h` (it can even be adding a new space).
-2. Commit your code. If you're using VS Code, follow [this video](https://youtu.be/9cMWR-EGFuY?si=etqYwMOt5sz1QgCL&t=289) to commit the changes (from 4m49s to 6m22s).
+2. Commit your code. If you're using VS Code, follow this video <!-- [this video](https://youtu.be/9cMWR-EGFuY?si=etqYwMOt5sz1QgCL&t=289) --> to commit the changes (from 4m49s to 6m22s).
 3. Run the `submit.py` at the root of the project. It will generate a `submit.zip` file.
 ```
 python submit.py
