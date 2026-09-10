@@ -13,4 +13,4 @@ thumbnail: /static_files/presentations/lec.jpg
 hide_from_announcments: true
 ---
 **Suggested Readings:**
-- P&D 9.4.3 <!-- [P&D 9.4.3](https://book.systemsapproach.org/applications/overlays.html#content-distribution-networks) -->
+- [P&D 9.4.3](https://book.systemsapproach.org/applications/overlays.html#content-distribution-networks)

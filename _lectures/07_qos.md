@@ -11,5 +11,5 @@ thumbnail: /static_files/presentations/lec.jpg
 hide_from_announcments: true
 ---
 **Suggested Readings:**
-- TCPCC 4 <!-- [TCPCC 4](https://tcpcc.systemsapproach.org/algorithm.html) -->
-- TCPCC 5 <!-- [TCPCC 5](https://tcpcc.systemsapproach.org/avoidance.html) -->
+- [TCPCC 4](https://tcpcc.systemsapproach.org/algorithm.html)
+- [TCPCC 5](https://tcpcc.systemsapproach.org/avoidance.html)

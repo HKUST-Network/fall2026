@@ -11,7 +11,7 @@ thumbnail: /static_files/presentations/lec.jpg
 hide_from_announcments: true
 ---
 **Suggested Readings:**
-- P&D 2.7 <!-- [P&D 2.7](https://book.systemsapproach.org/direct/wireless.html) -->
-- P&D 2.8.2 <!-- [P&D 2.8.2](https://book.systemsapproach.org/direct/access.html#cellular-network) -->
-- P&D 4.5 <!-- [P&D 4.5](https://book.systemsapproach.org/scaling/mobile-ip.html) -->
+- [P&D 2.7](https://book.systemsapproach.org/direct/wireless.html)
+- [P&D 2.8.2](https://book.systemsapproach.org/direct/access.html#cellular-network)
+- [P&D 4.5](https://book.systemsapproach.org/scaling/mobile-ip.html)
 

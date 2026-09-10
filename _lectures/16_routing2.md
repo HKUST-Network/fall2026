@@ -11,5 +11,5 @@ thumbnail: /static_files/presentations/lec.jpg
 hide_from_announcments: true
 ---
 **Suggested Readings:**
-- P&D 2.6 <!-- [P&D 2.6](https://book.systemsapproach.org/direct/ethernet.html) -->
+- [P&D 2.6](https://book.systemsapproach.org/direct/ethernet.html)
 

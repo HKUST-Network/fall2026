@@ -11,4 +11,4 @@ thumbnail: /static_files/presentations/lec.jpg
 hide_from_announcments: true
 ---
 **Suggested Readings:**
-- P&D 9.1 <!-- [P&D 9.1](https://book.systemsapproach.org/applications/traditional.html) -->
+- [P&D 9.1](https://book.systemsapproach.org/applications/traditional.html)

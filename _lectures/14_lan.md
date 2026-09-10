@@ -11,6 +11,6 @@ thumbnail: /static_files/presentations/lec.jpg
 hide_from_announcments: true
 ---
 **Suggested Readings:**
-- P&D 3.2 <!-- [P&D 3.2](https://book.systemsapproach.org/internetworking/ethernet.html) -->
-- P&D 3.3.6 <!-- [P&D 3.3.6](https://book.systemsapproach.org/internetworking/basic-ip.html#address-translation-arp) -->
-- P&D 3.3.7 <!-- [P&D 3.3.7](https://book.systemsapproach.org/internetworking/basic-ip.html#host-configuration-dhcp) -->
+- [P&D 3.2](https://book.systemsapproach.org/internetworking/ethernet.html)
+- [P&D 3.3.6](https://book.systemsapproach.org/internetworking/basic-ip.html#address-translation-arp)
+- [P&D 3.3.7](https://book.systemsapproach.org/internetworking/basic-ip.html#host-configuration-dhcp)

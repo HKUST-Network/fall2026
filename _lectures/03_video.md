@@ -11,5 +11,5 @@ thumbnail: /static_files/presentations/lec.jpg
 hide_from_announcments: true
 ---
 **Suggested Readings:**
-- P&D 7.2 <!-- [P&D 7.2](https://book.systemsapproach.org/data/multimedia.html) -->
-- P&D 9.2 <!-- [P&D 9.2](https://book.systemsapproach.org/applications/multimedia.html) -->
+- [P&D 7.2](https://book.systemsapproach.org/data/multimedia.html)
+- [P&D 9.2](https://book.systemsapproach.org/applications/multimedia.html)

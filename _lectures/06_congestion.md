@@ -13,5 +13,5 @@ thumbnail: /static_files/presentations/lec.jpg
 hide_from_announcments: true
 ---
 **Suggested Readings:**
-- P&D 6.3 <!-- [P&D 6.3](https://book.systemsapproach.org/congestion/tcpcc.html) -->
+- [P&D 6.3](https://book.systemsapproach.org/congestion/tcpcc.html)
 

@@ -13,4 +13,4 @@ thumbnail: /static_files/presentations/lec.jpg
 hide_from_announcments: true
 ---
 **Suggested Readings:**
-- P&D 5.2 <!-- [P&D 5.2](https://book.systemsapproach.org/e2e/tcp.html) -->
+- [P&D 5.2](https://book.systemsapproach.org/e2e/tcp.html)

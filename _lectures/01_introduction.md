@@ -11,5 +11,5 @@ thumbnail: /static_files/presentations/lec.jpg
 hide_from_announcments: true
 ---
 **Suggested Readings:**
-- P&D 1.5 <!-- [P&D 1.5](https://book.systemsapproach.org/foundation/performance.html) -->
-- P&D 2.1 <!-- [P&D 2.1](https://book.systemsapproach.org/direct/perspective.html) -->
+- [P&D 1.5](https://book.systemsapproach.org/foundation/performance.html)
+- [P&D 2.1](https://book.systemsapproach.org/direct/perspective.html)

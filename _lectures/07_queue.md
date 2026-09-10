@@ -11,4 +11,4 @@ thumbnail: /static_files/presentations/lec.jpg
 hide_from_announcments: true
 ---
 **Suggested Readings:**
-- P&D 6.2 <!-- [P&D 6.2](https://book.systemsapproach.org/congestion/queuing.html) -->
+- [P&D 6.2](https://book.systemsapproach.org/congestion/queuing.html)

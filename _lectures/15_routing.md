@@ -13,4 +13,4 @@ thumbnail: /static_files/presentations/lec.jpg
 hide_from_announcments: true
 ---
 **Suggested Readings:**
-- P&D 3.4 <!-- [P&D 3.4](https://book.systemsapproach.org/internetworking/routing.html) -->
+- [P&D 3.4](https://book.systemsapproach.org/internetworking/routing.html)
