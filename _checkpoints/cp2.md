@@ -1,6 +1,6 @@
 ---
 type: checkpoint
-date: 2026-09-21T15:00:00+08:00
+date: 2026-09-25T15:00:00+08:00
 tentative: true
 title: 'Checkpoint 2: TCP Basics, Congestion Control and Loss Recovery'
 due_event: 
