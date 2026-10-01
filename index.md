@@ -72,6 +72,9 @@ Course service links and teaching materials will be added gradually throughout t
   For all course-related questions, you are **strongly discouraged** to email the instructor directly unless privacy concerns are involved. Instead, post your questions on Ed (it can be anonymous). Other students can benefit from the answer as well.
 * [Gradescope](https://www.gradescope.com/courses/1384476).\
   For submitting homework assignments and projects.
+* [Homework 1](https://www.gradescope.com/courses/1384476/assignments/8673526).\
+  Download the assignment and submit it on Gradescope.
+* Project checkpoints: [Checkpoint 1 code](https://www.gradescope.com/courses/1384476/assignments/8605558), [Checkpoint 1 report](https://www.gradescope.com/courses/1384476/assignments/8631196), and [Checkpoint 2 code](https://www.gradescope.com/courses/1384476/assignments/8733147).
 <!-- The project repository link will be re-enabled when the Fall 2026 resource is ready.
 * [Github repo](https://github.com/HKUST-Network/foggytcp).\
   For releasing code template for projects.

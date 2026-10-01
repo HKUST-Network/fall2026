@@ -10,6 +10,9 @@
     {% if include.event.link %}
     [<a href="{{ include.event.link }}">{{ include.event.title }}</a>]
     {% endif %}
+    {% for assignment in include.event.gradescope_links %}
+    [<a href="{{ assignment.url }}">{{ assignment.name }}</a>]
+    {% endfor %}
     {% if include.event.solutions %}
     [<a href="{{ include.event.solutions | prepend: site.baseurl}}">Solutions</a>]
     {% endif %}

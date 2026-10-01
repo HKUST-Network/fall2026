@@ -6,6 +6,11 @@ layout: page
 {% for asg in site.checkpoints %}
       <li class="archiveposturl" style="background: transparent">
         <span><a href="{{ asg.url | prepend: site.baseurl}}">{{ asg.title }}</a></span>
+{% if asg.gradescope_links %}
+{% for assignment in asg.gradescope_links %}
+        [<a href="{{ assignment.url }}">{{ assignment.name }}</a>]
+{% endfor %}
+{% endif %}
 <strong style="font-size:100%; font-family: 'Titillium Web', sans-serif; float:right">
 {% if asg.pdf %}
 <a title="Download problems (pdf)" href="{{ asg.pdf | prepend: site.baseurl }}"><i class="fas fa-file-pdf"></i></a>

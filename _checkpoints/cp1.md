@@ -3,7 +3,11 @@ type: checkpoint
 date: 2026-09-07T15:00:00+08:00
 tentative: true
 title: 'Checkpoint 1: Kickoff'
-# link: https://www.gradescope.com/
+gradescope_links:
+    - name: code autograder
+      url: https://www.gradescope.com/courses/1384476/assignments/8605558
+    - name: report
+      url: https://www.gradescope.com/courses/1384476/assignments/8631196
 due_event: 
     type: due
     date: 2026-10-02T23:59:00+08:00

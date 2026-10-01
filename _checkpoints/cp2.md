@@ -3,6 +3,9 @@ type: checkpoint
 date: 2026-09-25T15:00:00+08:00
 tentative: true
 title: 'Checkpoint 2: TCP Basics, Congestion Control and Loss Recovery'
+gradescope_links:
+    - name: code autograder
+      url: https://www.gradescope.com/courses/1384476/assignments/8733147
 due_event: 
     type: due
     date: 2026-10-09T23:59:00+08:00

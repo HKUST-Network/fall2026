@@ -13,7 +13,11 @@ title: page.title
     {% if page.due_event %}
     <span style="font-weight: bold">{% if page.tentative %}Tentative due date:{% else %}Due Date:{% endif %} {{ page.due_event.date | date: site.dateformat }} {{ page.due_event.date | date: "%H:%M" }}</span>
     {% endif %}
-    <p style="font-weight: bold">Download
+    {% if page.link or page.pdf or page.attachment or page.solutions %}
+    <p style="font-weight: bold">
+      {% if page.link %}
+      <a href="{{ page.link }}">Download assignment on Gradescope</a>
+      {% endif %}
       {% if page.pdf %}
       [<a href="{{ page.pdf | prepend: site.baseurl }}">problems</a>]
       {% endif %}
@@ -24,6 +28,7 @@ title: page.title
       [<a href="{{ page.solutions | prepend: site.baseurl }}">solutions</a>]
       {% endif %}
     </p>
+    {% endif %}
 
     <div style="color: gray;">
       <h3>Late Policy</h3>
