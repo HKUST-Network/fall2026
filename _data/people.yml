@@ -6,13 +6,18 @@ instructors:
 
 teaching_assistants:
   - name: Samuel Man Hin Yeung
+    profile_pic: https://unc.nc/wp-content/uploads/2020/07/Portrait_Placeholder.png
     responsibilities: miscellaneous, HW1, and CP1
 
   - name: Bochun Zhang
+    profile_pic: https://unc.nc/wp-content/uploads/2020/07/Portrait_Placeholder.png
     responsibilities: CP2, CP3, and CP4
 
   - name: Xiangjie Huang
+    profile_pic: https://unc.nc/wp-content/uploads/2020/07/Portrait_Placeholder.png
     responsibilities: HW2, HW3, and HW4
 
   - name: Yibin Shen
+    profile_pic: https://unc.nc/wp-content/uploads/2020/07/Portrait_Placeholder.png
     responsibilities: midterm and final
+    email: yshench@connect.ust.hk
