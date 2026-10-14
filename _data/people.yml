@@ -16,7 +16,8 @@ teaching_assistants:
     email: bzhangcv@connect.ust.hk
 
   - name: Xiangjie Huang
-    profile_pic: https://unc.nc/wp-content/uploads/2020/07/Portrait_Placeholder.png
+    # Photo source: https://www.linkedin.com/in/xiangjie-huang-136004247/
+    profile_pic: /_images/ta/xiangjie-huang.jpg
     responsibilities: HW2, HW3, and HW4
     email: xhuangdd@connect.ust.hk
 
