@@ -53,19 +53,11 @@ layout: default
         <div style="width:75%; float: left">
             <div class="profile-pic-gallary ">
                 <h2>Teaching Assistants</h2>
+                <ul>
                 {% for ta in site.data.people.teaching_assistants %}
-                <div class="image--cover-container">
-                    <img src="{{ta.profile_pic }}" class="image--cover">
-                    {% if ta.webpage %}
-                    <p><a href="{{ ta.webpage }}">{{ta.name}}</a></p>
-                    {% else %}
-                    <p>{{ta.name}}</p>
-                    {% endif %}
-                    {% if ta.email %}
-                    <p><a href="mailto:{{ ta.email }}">{{ta.email}}</a></p>
-                    {% endif %}
-                </div>
+                    <li><strong>{{ ta.name }}</strong> — in charge of {{ ta.responsibilities }}</li>
                 {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
