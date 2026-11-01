@@ -1,13 +1,15 @@
 ---
 type: checkpoint
-date: 2026-10-30T15:00:00+08:00
-tentative: false
+date: 2026-11-01T15:00:00+08:00
+tentative: true
 title: 'Checkpoint 3: HTTP over FoggyTCP'
+gradescope_links:
+    - name: code autograder
+      url: https://www.gradescope.com/courses/1384476/assignments/8896234
 due_event:
     type: due
-    date: 2026-11-15T23:59:00+08:00
-    description: 'Checkpoint #3 due'
-attachment: /static_files/checkpoints/cp3/cp3-student.zip
+    date: 2026-11-13T23:59:00+08:00
+    description: 'Checkpoint #3 due (tentative)'
 ---
 
 # Introduction
