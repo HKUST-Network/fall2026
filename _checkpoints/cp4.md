@@ -12,6 +12,38 @@ due_event:
     description: 'Checkpoint #4 due (tentative)'
 ---
 
+<style>
+.cp4-handout {
+  max-width: 60rem;
+}
+.cp4-handout table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+}
+.cp4-handout th,
+.cp4-handout td {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+  padding: 0.55rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+.cp4-handout th {
+  background: rgba(128, 128, 128, 0.08);
+}
+.cp4-handout code {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 480px) {
+  .cp4-handout th,
+  .cp4-handout td {
+    padding: 0.45rem 0.35rem;
+  }
+}
+</style>
+
+<div class="cp4-handout" markdown="1">
+
 # Introduction
 
 In this checkpoint, you will complete two tasks using **your own CP3 code**. If you have not finished CP3, complete it first. **We do not provide a sample solution.**
@@ -31,25 +63,35 @@ git pull --no-rebase origin foggy-llama
 
 When running a real model, the server uses llama.cpp, a C/C++ library that runs language models locally from GGUF files. [llama.cpp repository](https://github.com/ggml-org/llama.cpp)
 
-The build compiles both submitted `.cc` files, `foggy_http.cc` and `llama_routes.cc`, as C11. It compiles the supplied application framework separately as C++11.
+# Implementation
 
-## Register the model routes
+The two submitted `.cc` files, `foggy_http.cc` and `llama_routes.cc`, compile as **C11**. The supplied application framework compiles as C++11.
 
-Complete `foggy_llama_register_routes()` in `foggy-llama/src/llama_routes.cc`. Its interface is declared in `foggy-llama/inc/foggy_llama.h`. Register the supplied handlers with `foggy_http_server_get()` and `foggy_http_server_post()`. Pass the supplied `service` pointer as each handler's context. Return `0` on success or `-1` with `errno` set on failure.
+## 1. Register the model routes
 
-| Route | Supplied handler |
-| --- | --- |
-| `GET /health` | `foggy_llama_health` |
-| `GET /v1/models` | `foggy_llama_models` |
-| `POST /v1/chat/completions` | `foggy_llama_chat` |
+Complete `foggy_llama_register_routes()` in `foggy-llama/src/llama_routes.cc`.
 
-## Route lookup
+The declaration is in `foggy-llama/inc/foggy_llama.h`.
+
+| Method | Path | Supplied handler |
+| :--- | :--- | :--- |
+| GET | `/health` | `foggy_llama_health` |
+| GET | `/v1/models` | `foggy_llama_models` |
+| POST | `/v1/chat/completions` | `foggy_llama_chat` |
+
+- Use `foggy_http_server_get()` for GET routes and `foggy_http_server_post()` for POST routes.
+- Pass the supplied `service` pointer as each handler's context.
+- Return `0` on success or `-1` with `errno` set on failure.
+
+## 2. Extend the HTTP server
+
+### Route lookup
 
 Update `foggy_http_server_listen()` in `foggy-http/src/foggy_http.cc`. After parsing the request and initializing the response, match the request method to the registered method and the full request target to the registered path. Both comparisons must be exact and case-sensitive. For example, `GET /health?x=1` returns HTTP 404 because the registered path is `/health`.
 
 A path can have both GET and POST handlers. Call the matching handler with the original request, the initialized response, and its registered context. Keep the CP3 public HTTP headers and function signatures.
 
-## Routing errors
+### Routing errors
 
 Implement two routing errors in `foggy_http_server_listen()`.
 
@@ -67,13 +109,15 @@ Fill the initialized `foggy_http_response_t` and pass it to the CP3 code in `fog
 
 The supplied model handlers generate their own application error responses.
 
-## OPTIONS requests
+### OPTIONS requests
 
 For `OPTIONS` on a registered path, return HTTP 200 with an empty body and an `Allow` header directly from the HTTP server. Use `Content-Length: 0` to delimit the empty response on a persistent HTTP/1.1 connection. You can omit `Content-Type` for this response. For `OPTIONS` on an unknown path, return the same JSON 404 as for other methods.
 
 For both HTTP 200 responses to `OPTIONS` and HTTP 405 responses, list `GET` and `POST` if registered, in that order, then append `OPTIONS`. The possible `Allow` values are `GET, OPTIONS`, `POST, OPTIONS`, and `GET, POST, OPTIONS`. For example, `OPTIONS /health` returns `Allow: GET, OPTIONS`.
 
-## Build and run with the mock engine
+# Build and test
+
+## Run with the mock engine
 
 From the project root, build the client and server with `make cp4`. The first build initializes the submodules, including the new `thirdparty/llama.cpp` submodule, prepares the pinned library, and downloads the course GGUF model (about 105 MB).
 
@@ -96,7 +140,7 @@ In another terminal, try the three routes.
 
 By default, the client connects to `localhost` on UDP port 8083. Use `--host` to connect to your server VM.
 
-### Run the local checks
+## Run the local checks
 
 After completing both tasks and running `make cp4`, run the test script from the project root.
 
@@ -123,3 +167,5 @@ In another terminal, send a prompt to the real model.
 # What to submit
 
 Run `python3 foggy-llama/submit.py` from the project root and upload the resulting `foggy-llama/submit.zip` to the CP4 programming assignment on Gradescope. The ZIP contains `foggy_http.cc`, `llama_routes.cc`, and the generated `SHA256SUMS` file. Submit code only.
+
+</div>
