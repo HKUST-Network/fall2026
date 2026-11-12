@@ -2,89 +2,124 @@
 type: checkpoint
 date: 2026-11-09T15:00:00+08:00
 tentative: true
-title: 'Checkpoint 4: Design your own algorithm!'
-due_event: 
+title: 'Checkpoint 4: foggy-llama'
+gradescope_links:
+    - name: code autograder
+      url: https://www.gradescope.com/courses/1384476/assignments/9041316
+due_event:
     type: due
     date: 2026-11-27T23:59:00+08:00
     description: 'Checkpoint #4 due (tentative)'
 ---
 
 # Introduction
-In this checkpoint, you need to finish two tasks based on **your own CP3 code**. So if you have not finished your CP3, you need to implement it at first (**we don't provide sample answer code**). We will add some regression tests for CP3 in CP4.
 
-* Dr. Matt Mathis's hypothesis,
-* Your own CCA.
+In this checkpoint, you will complete two tasks using **your own CP3 code**. If you have not finished CP3, complete it first. **We do not provide a sample solution.**
 
-# Dr. Matt Mathis's hypothesis
-## Hypothesis
-In Checkpoint 1, we asked you questions and you formed your own hypotheses. In this checkpoint, we are going to give you a hypothesis formulated by Dr. Matt Mathis: that TCP Reno implementations obey the following throughput equation:
-**throughput = (MSS/RTT)*(C/sqrt(p))**, where **C** is a constant, **p** is the loss probability, RTT is the round-trip time and MSS is 1400 bytes in our project. The following measurements will help you verify this hypothesis.
+- Register the model routes for `foggy-llama`.
+- Extend your HTTP server to handle routing errors and `OPTIONS` requests.
 
-(Reference: DOI 10.1145/263932.264023) <!-- https://dl.acm.org/doi/10.1145/263932.264023 -->
-## Experiment
-Use tcconfig (checkpoint 1) to adjust the loss probability **p** on the sender node to different values.
+From the root of your completed CP3 checkout, pull the CP4 starter branch.
+
+```sh
+git pull --no-rebase origin foggy-llama
 ```
-sudo tcset eth0 --rate 10Mbps --delay 20ms --loss 0.01%
+
+# foggy-llama
+
+`foggy-llama` provides a command-line client, a model server, and handlers for health checks, model discovery, and chat completions. The client sends HTTP requests over FoggyTCP v2. The chat handler streams server-sent events (SSE) using your CP3 chunked response writer.
+
+When running a real model, the server uses llama.cpp, a C/C++ library that runs language models locally from GGUF files. [llama.cpp repository](https://github.com/ggml-org/llama.cpp)
+
+The build compiles both submitted `.cc` files, `foggy_http.cc` and `llama_routes.cc`, as C11. It compiles the supplied application framework separately as C++11.
+
+## Register the model routes
+
+Complete `foggy_llama_register_routes()` in `foggy-llama/src/llama_routes.cc`. Its interface is declared in `foggy-llama/inc/foggy_llama.h`. Register the supplied handlers with `foggy_http_server_get()` and `foggy_http_server_post()`. Pass the supplied `service` pointer as each handler's context. Return `0` on success or `-1` with `errno` set on failure.
+
+| Route | Supplied handler |
+| --- | --- |
+| `GET /health` | `foggy_llama_health` |
+| `GET /v1/models` | `foggy_llama_models` |
+| `POST /v1/chat/completions` | `foggy_llama_chat` |
+
+## Route lookup
+
+Update `foggy_http_server_listen()` in `foggy-http/src/foggy_http.cc`. After parsing the request and initializing the response, match the request method to the registered method and the full request target to the registered path. Both comparisons must be exact and case-sensitive. For example, `GET /health?x=1` returns HTTP 404 because the registered path is `/health`.
+
+A path can have both GET and POST handlers. Call the matching handler with the original request, the initialized response, and its registered context. Keep the CP3 public HTTP headers and function signatures.
+
+## Routing errors
+
+Implement two routing errors in `foggy_http_server_listen()`.
+
+- Return HTTP 404 when the full request target has no exact match among the registered paths.
+- For a matching path, handle `OPTIONS` as described below. Return HTTP 405 with an `Allow` header for any other unsupported method.
+
+For both errors, set `Content-Type: application/json` and send a JSON object with an `error` field. The field can contain any valid JSON value. A short message string is enough, and you can choose its wording.
+
+| Example request | Status | JSON body | `Allow` |
+| --- | --- | --- | --- |
+| `GET /missing` | `404 Not Found` | `{"error":"Not Found"}` | |
+| `POST /health` | `405 Method Not Allowed` | `{"error":"Method Not Allowed"}` | `GET, OPTIONS` |
+
+Fill the initialized `foggy_http_response_t` and pass it to the CP3 code in `foggy_http_server_listen()` that serializes and sends a successful handler response. If you put that code in a helper such as `write_response()`, reuse that helper so the response is framed correctly on a persistent connection.
+
+The supplied model handlers generate their own application error responses.
+
+## OPTIONS requests
+
+For `OPTIONS` on a registered path, return HTTP 200 with an empty body and an `Allow` header directly from the HTTP server. Use `Content-Length: 0` to delimit the empty response on a persistent HTTP/1.1 connection. You can omit `Content-Type` for this response. For `OPTIONS` on an unknown path, return the same JSON 404 as for other methods.
+
+For both HTTP 200 responses to `OPTIONS` and HTTP 405 responses, list `GET` and `POST` if registered, in that order, then append `OPTIONS`. The possible `Allow` values are `GET, OPTIONS`, `POST, OPTIONS`, and `GET, POST, OPTIONS`. For example, `OPTIONS /health` returns `Allow: GET, OPTIONS`.
+
+## Build and run with the mock engine
+
+From the project root, build the client and server with `make cp4`. The first build initializes the submodules, including the new `thirdparty/llama.cpp` submodule, prepares the pinned library, and downloads the course GGUF model (about 105 MB).
+
+On Ubuntu arm64, Make compiles the llama.cpp CPU backend from source to support the course Ubuntu 22.04 VMs. Allow a few minutes for the first build, depending on your VM and download speed. Subsequent builds reuse the compiled library.
+
+Use `--mock` to test your routes and streaming responses with the deterministic backend.
+
+```sh
+make cp4
+./build/foggy-server --mock
 ```
-For different values of **p**, **transfer a large file** and measure the duration of the transfer (make sure to adjust the file size so that your transfer takes at least a few seconds). Use the transfer duration and the file size to calculate the throughput. Repeat the same experiment 10 times for each loss probability. Create a line plot with **1/sqrt(p)** on the x axis and throughput on the y axis. Do linear regression and include the regression line on the same plot.
 
-## Inference
-Based on the results of your experiments, we ask that you answer the following questions:
-* Using your linear regression, what value did you find for **C**?
-* Compute the Pearson Correlation Coefficient between **1/sqrt(p)**  and the throughput that you measured.
-* Does your data corroborate Dr. Mathis's hypothesis? Why or why not?
+In another terminal, try the three routes.
 
-## Hint
-Due to the lack of the timeout retransmission, sometimes your program may stuck please try again.
-
-# Your own CCA
-You now have the opportunity to design your own CCA with the goal of outperforming TCP Reno and you can modify anything you like.
-* The metric is throughput (as measured by the time it takes to transfer a 1MB file).
-
-## Hint
-* You can go through the lecture: Congestion Control and lecture: Advanced Congestion Control again.
-* Due to the lack of the timeout retransmission, sometimes your program may stuck please try/submit again.
-* <font color=red> <strong >Test link: RTT = 200ms, the buffer size of the router is infinite. But the router will add extra delay Xms when the buffer depth exceeds N. </strong> </font> For example, if N = 5 and there are currently 10 packets in the buffer, extra delay will be added for packets 6 through 10.
-
-## How to test by yourself
-### tcconfig
-You can simulate the link (bandwidth, latency and loss rate) by tcconfig.
+```sh
+./build/foggy-client health
+./build/foggy-client models
+./build/foggy-client chat --prompt 'Say hello.'
 ```
-sudo tcset eth0 --rate 10Mbps --delay 20ms --loss 0.01%
+
+By default, the client connects to `localhost` on UDP port 8083. Use `--host` to connect to your server VM.
+
+### Run the local checks
+
+After completing both tasks and running `make cp4`, run the test script from the project root.
+
+```sh
+python3 foggy-llama/tests/smoke.py
 ```
-### burst
-You can simulate the burst traffic by starting an another file transfer between two VMs.
-### duplicate ACKs
-You can manually send duplicate ACKs at your recevier to simulate the congestion scenarios.
+
+The script starts its own `--mock` server on `127.0.0.1`, selects an available UDP port, and stops the server when the checks finish. It checks the three model routes, JSON routing errors, and `OPTIONS` responses with `Allow`.
+
+## Run with a real model
+
+Start the server on UDP port 8084 with the course model prepared by `make cp4`.
+
+```sh
+./build/foggy-server --model foggy-llama/models/SmolLM2-135M-Instruct-Q4_K_M.gguf --port 8084
+```
+
+In another terminal, send a prompt to the real model.
+
+```sh
+./build/foggy-client --port 8084 chat --prompt 'Say hello.'
+```
 
 # What to submit
-Like the checkpoint 1, we have one assignment for the codes and one assignment for the report.
-## Codes
-Your implementation should be in the following files: ```foggy_function.cc```, ```foggy_tcp.cc```, ```foggy_function.h``` and ```foggy_tcp.h```. You can run the `submit.py` at the root of the project which will generate a `submit.zip` file including these four files, then submit the `submit.zip` file to Gradescope. The autograder will copy those four files you submitted to the starter codes and do the testing.
 
-We will evaluate your CCA by autograder and use a leaderboard to show the results in real time.
-## Report
-The report should include two parts: (1) Dr. Matt Mathis's hypothesis and (2) Your own CCA.
-### Dr. Matt Mathis's hypothesis
-* Create a line plot with **1/sqrt(p)** on the x axis and throughput on the y axis.
-* Do linear regression and include the regression line on the same plot.
-* Using your linear regression, what value did you find for **C**?
-* Compute the Pearson Correlation Coefficient between **1/sqrt(p)**  and the throughput that you measured.
-* Does your data corroborate Dr. Mathis's hypothesis? Why or why not?
-
-### Your own CCA
-In your report include a section called **Algorithm Proposal**. In this section, you should:
-* Propose a new algorithm (or a modification to Reno) that improves its throughput. Provide a detailed algorithm description, including why your new algorithm will improve throughput relative to your Reno implementation.
-
-In your report include a section called **Algorithm Evaluation**. In this section, you should:
-* Provide data comparing your Reno implementation to your new algorithm completing a 1MB transfer.
-* That means how long does it take for a single connection to transfer 1MB.
-
-<!-- * Provide data comparing your Reno implementation to your new algorithm completing a 20MB transfer. Compare the following properties of both algorithms:
-    1. How long does it take for a single connection to transfer 20MB?
-    2. How long does it take for two connections, sharing the same link, to transfer 20MB each? 
-    2. What is the Jain's Fairness Index when the two connections compete?
-
-We will not rank your result by the fairness and we just want you to have a basic sense of fairness (e.g., how to evaluate fairness). So we will accept any reasonable result.
-
-Jain's Fairness Index (JFI) is a measure of how fairly a set of entities share some resource: $$ J(x_1, x_2, \ldots, x_n) = \frac{(\sum_{i=1}^{n}{x_i})^2}{n \cdot \sum_{i=i}^{n}{x_i^2}} $$, where $$x_i$$ is the resource allocation assigned to entity $i$ (e.g., throughput). JFI values range from $$\frac{1}{n}$$ (very unfair) to 1 (perfectly fair). -->
+Run `python3 foggy-llama/submit.py` from the project root and upload the resulting `foggy-llama/submit.zip` to the CP4 programming assignment on Gradescope. The ZIP contains `foggy_http.cc`, `llama_routes.cc`, and the generated `SHA256SUMS` file. Submit code only.
